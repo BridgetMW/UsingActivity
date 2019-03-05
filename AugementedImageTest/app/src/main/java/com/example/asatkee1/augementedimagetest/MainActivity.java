@@ -49,15 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("trucking state matched picture", "picture was founded!");
 
                 if ((augmentedImage.getName().equals("H_letter")|| augmentedImage.getName().equals("H_letter_1") ||
-                        augmentedImage.getName().equals("Housing"))&&
-                        shouldAddModel){
+                        augmentedImage.getName().equals("Housing"))){
 
                     Log.d("image name was matched", "model was put on picture!");
 
                     //start the transperent activity
                     Intent myIntent = new Intent(MainActivity.this, Initial_Page_Activity.class);
                     MainActivity.this.startActivity(myIntent);
-                    shouldAddModel = false;
                 }
             }
         }
@@ -110,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+
+
 
 
 
