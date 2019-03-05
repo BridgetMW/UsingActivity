@@ -1,11 +1,12 @@
 package com.example.asatkee1.augementedimagetest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class General_Information_Activity extends AppCompatActivity {
-TextView info;
+private TextView info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,7 +15,16 @@ TextView info;
         getWindow().setBackgroundDrawableResource(R.drawable.backgroundwhite);
 
         info = findViewById(R.id.information);
-        info.setText("This is the general information about housing");
+       // info.setText("This is the general information about housing");
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                info.setText(intent.getStringExtra("KEY")); // Handle text being sent
+            }
+
+        }
 
 
 
