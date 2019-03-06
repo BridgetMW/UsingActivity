@@ -34,9 +34,14 @@
         <activity android:name=".General_Information_Activity"
             android:theme="@style/Theme.AppCompat.Translucent">
         </activity>
+        <!-- R Building -->
         <activity android:name=".RBuilding" />
         <activity android:name=".RArtsAndHumanitiesMain" />
         <activity android:name=".RArtsAndHumanitiesDepartments" />
+        <!-- S building -->
+        <activity android:name=".SBuilding" />
+        <activity android:name=".SScienceDepartments" />
+
     </application>
 
 </manifest>

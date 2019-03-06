@@ -49,13 +49,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("trucking state matched picture", "picture was founded!");
 
                 if ((augmentedImage.getName().equals("H_letter")|| augmentedImage.getName().equals("H_letter_1") ||
-                        augmentedImage.getName().equals("Housing"))&&
-                        shouldAddModel){
+                        augmentedImage.getName().equals("Housing"))){
 
                     Log.d("image name was matched", "model was put on picture!");
 
                     //start the transperent activity
                     Intent myIntent = new Intent(MainActivity.this, RBuilding.class);
+                    MainActivity.this.startActivity(myIntent);
+                    //shouldAddModel = false;
+                } else if ((augmentedImage.getName().equals("math_book"))){
+
+                    Log.d("image name was matched", "model was put on picture!");
+
+                    //start the transperent activity
+                    Intent myIntent = new Intent(MainActivity.this, SBuilding.class);
                     MainActivity.this.startActivity(myIntent);
                     //shouldAddModel = false;
                 }
@@ -79,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
         augmentedImageDatabase = new AugmentedImageDatabase(session);
         augmentedImageDatabase.addImage("H_letter", bitmap.get(0));
         augmentedImageDatabase.addImage("H_letter_1", bitmap.get(1));
-       // augmentedImageDatabase.addImage("Housing", bitmap.get(2));
+        augmentedImageDatabase.addImage("Housing", bitmap.get(2));
+        augmentedImageDatabase.addImage("math_book", bitmap.get(3));
         config.setAugmentedImageDatabase(augmentedImageDatabase);
         return true;
     }
@@ -93,18 +101,36 @@ public class MainActivity extends AppCompatActivity {
         catch (IOException e){
             Log.e("ImageLoad", "IO Exception while loading", e);
         }
-        try (InputStream is = getAssets().open("H_letter_1.jpg")){
+
+        try (InputStream is = getAssets().open("H_letter_1.JPG")){
             bitmaps.add(BitmapFactory.decodeStream(is));
         }
         catch (IOException e){
             Log.e("ImageLoad", "IO Exception while loading", e);
         }
+
         try (InputStream is = getAssets().open("Housing.jpg")){
             bitmaps.add(BitmapFactory.decodeStream(is));
         }
         catch (IOException e){
             Log.e("ImageLoad", "IO Exception while loading", e);
         }
+
+        try (InputStream is = getAssets().open("math_book.jpg")){
+            bitmaps.add(BitmapFactory.decodeStream(is));
+        }
+        catch (IOException e){
+            Log.e("ImageLoad", "IO Exception while loading", e);
+        }
+
+        //Buffer
+        try (InputStream is = getAssets().open("H_letter_2.JPG")){
+            bitmaps.add(BitmapFactory.decodeStream(is));
+        }
+        catch (IOException e){
+            Log.e("ImageLoad", "IO Exception while loading", e);
+        }
+
         if(!bitmaps.isEmpty()){
             return bitmaps;
         }
