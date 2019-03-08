@@ -65,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
                     Intent myIntent = new Intent(MainActivity.this, SBuilding.class);
                     MainActivity.this.startActivity(myIntent);
                     //shouldAddModel = false;
+                } else if ((augmentedImage.getName().equals("E_Building"))){
+
+                    Log.d("image name was matched", "model was put on picture!");
+
+                    //start the transperent activity
+                    Intent myIntent = new Intent(MainActivity.this, EBuilding.class);
+                    MainActivity.this.startActivity(myIntent);
+                    //shouldAddModel = false;
                 }
             }
         }
@@ -88,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         augmentedImageDatabase.addImage("H_letter_1", bitmap.get(1));
         augmentedImageDatabase.addImage("Housing", bitmap.get(2));
         augmentedImageDatabase.addImage("math_book", bitmap.get(3));
+        augmentedImageDatabase.addImage("E_Building", bitmap.get(4));
         config.setAugmentedImageDatabase(augmentedImageDatabase);
         return true;
     }
@@ -117,6 +126,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         try (InputStream is = getAssets().open("math_book.jpg")){
+            bitmaps.add(BitmapFactory.decodeStream(is));
+        }
+        catch (IOException e){
+            Log.e("ImageLoad", "IO Exception while loading", e);
+        }
+
+        try (InputStream is = getAssets().open("E_Building.jpg")){
             bitmaps.add(BitmapFactory.decodeStream(is));
         }
         catch (IOException e){

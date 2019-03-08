@@ -34,6 +34,8 @@
         <activity android:name=".General_Information_Activity"
             android:theme="@style/Theme.AppCompat.Translucent">
         </activity>
+        <!-- E building -->
+        <activity android:name=".EBuilding" />
         <!-- R Building -->
         <activity android:name=".RBuilding" />
         <activity android:name=".RArtsAndHumanitiesMain" />
