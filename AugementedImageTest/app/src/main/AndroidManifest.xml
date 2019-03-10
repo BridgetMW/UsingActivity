@@ -36,6 +36,16 @@
         </activity>
         <!-- E building -->
         <activity android:name=".EBuilding" />
+        <!-- F building -->
+        <activity android:name=".FBuilding" />
+        <!-- G building -->
+        <activity android:name=".GBuilding" />
+        <!-- K building -->
+        <activity android:name=".KBuilding" />
+        <!-- Q building -->
+        <activity android:name=".QBuilding" />
+        <activity android:name=".QEarlyLearningTeacherEdMain" />
+        <activity android:name=".QEarlyLearningCenterMain" />
         <!-- R Building -->
         <activity android:name=".RBuilding" />
         <activity android:name=".RArtsAndHumanitiesMain" />
@@ -43,6 +53,8 @@
         <!-- S building -->
         <activity android:name=".SBuilding" />
         <activity android:name=".SScienceDepartments" />
+        <!-- U building -->
+        <activity android:name=".UBuilding" />
 
     </application>
 

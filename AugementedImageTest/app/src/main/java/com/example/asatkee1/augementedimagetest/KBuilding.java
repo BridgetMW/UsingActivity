@@ -3,8 +3,9 @@ package com.example.asatkee1.augementedimagetest;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-public class SBuilding extends AppActivityBuilderMethods {
+public class KBuilding extends AppActivityBuilderMethods {
     // Put in the URL this activity will be parsing from.
     private final String THIS_ONES_URL = "";
 
@@ -19,7 +20,7 @@ public class SBuilding extends AppActivityBuilderMethods {
 
         // --- Toolbar stuff, don't forget to set the name ---
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("S Building");
+        toolbar.setTitle("K Building");
         setSupportActionBar(toolbar);
 
         // --- Layouts ---
@@ -27,22 +28,16 @@ public class SBuilding extends AppActivityBuilderMethods {
         LinearLayout bodyLayout = (LinearLayout) findViewById(R.id.bodyLayout);
 
         // --- Variables ---
-        String info = "The S building is home to the science division." +
-                " There is a state of the art biology and chemistry equipment for classes and clubs." +
-                " The science study center provides tutors for many science topics."; //will want to alter later
+        String info = "The K building is home to Bellevue College campus operations." +
+                " This building also houses the campus mailroom."; //will want to alter later
 
         // --- topLayout ---
-        titleBuilder("S Building", topLayout);
+        titleBuilder("K Building", topLayout);
         isAccessible(topLayout);
-        hasHelp(topLayout);
-        hasComputers(topLayout);
+
 
         // --- bodyLayout ---
         textViewBuilder(info, bodyLayout);
-        linkButtonBuilder("Science Division Website", "https://www.bellevuecollege.edu/science/", true, bodyLayout);
-        linkButtonBuilder("Science Clubs", "https://www.bellevuecollege.edu/science/clubs/", true, bodyLayout);
-        activityButtonBuilder("Departments", SBuilding.this, SScienceDepartments.class, false, bodyLayout);
-
 
 
     }

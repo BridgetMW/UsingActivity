@@ -1,5 +1,6 @@
 package com.example.asatkee1.augementedimagetest;
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +14,10 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class RArtsAndHumanitiesDepartments extends AppActivityBuilderMethods {
+public class QEarlyLearningTeacherEdMain extends AppActivityBuilderMethods {
 
     // Put in the URL this activity will be parsing from
-    private final String THIS_ONES_URL = "https://www.bellevuecollege.edu/artshum/";
+    private final String THIS_ONES_URL = "https://www.bellevuecollege.edu/teachered/academicoptions/degrees/";
 
     //These are the views we'll be altering or parsing for
 
@@ -30,7 +31,7 @@ public class RArtsAndHumanitiesDepartments extends AppActivityBuilderMethods {
 
         // --- Toolbar stuff, don't forget to set the name ---
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Arts and Humanities");
+        toolbar.setTitle("Early Learning & Teacher Education");
         setSupportActionBar(toolbar);
 
         // --- Gotta put these in the onCreate method ---
@@ -39,14 +40,14 @@ public class RArtsAndHumanitiesDepartments extends AppActivityBuilderMethods {
 
 
         // --- topLayout ---
-        subTitleBuilder("Arts and Humanities Departments", topLayout);
+        subTitleBuilder("Early Learning & Teacher Education Programs of Study", topLayout);
 
         // --- bodyLayout ---
 
         // --- Styling ---
 
         // --- Async task ---
-        new RArtsAndHumanitiesDepartments.ParseWebpageTask().execute(THIS_ONES_URL);
+        new QEarlyLearningTeacherEdMain.ParseWebpageTask().execute(THIS_ONES_URL);
 
 
     }
