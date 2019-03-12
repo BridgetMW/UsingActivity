@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,7 +18,9 @@ import java.util.regex.Pattern;
 public class Initial_Page_Activity extends AppCompatActivity {
 private Button apply;
 private Button general_info;
-private String txt, result,title;
+private String txt ="";
+    private String result = "";
+    private String title = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,27 +35,34 @@ private String txt, result,title;
                 startActivity(browserIntent);
             }
         });
-        
+
+
+
         general_info = findViewById(R.id.general_info);
         general_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    txt = urlParse();
-                    result = pullInfo(txt);
-                    Intent sendIntent = new Intent(Initial_Page_Activity.this, General_Information_Activity.class);
-                    sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra("KEY", result);
-                    sendIntent.setType("text/plain");
-                    Initial_Page_Activity.this.startActivity(sendIntent);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
+                new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            txt = urlParse();
+                            result = pullInfo(txt);
+                            Intent sendIntent = new Intent(Initial_Page_Activity.this, General_Information_Activity.class);
+                            sendIntent.setAction(Intent.ACTION_SEND);
+                            sendIntent.putExtra("KEY", result);
+                            sendIntent.setType("text/plain");
+                            Initial_Page_Activity.this.startActivity(sendIntent);
+                            Log.w("Info", result);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+
+                Thread.interrupted();
             }
         });
     }
-
-
 
     public String urlParse() throws IOException {
         URL url = new URL("https://www.bellevuecollege.edu/housing"); // URL
@@ -65,8 +75,9 @@ private String txt, result,title;
         return text;
     }
 
+
     public String pullInfo(String html) {
-        Pattern pattern = Pattern.compile("<h2>Student Housing is in full swing at Bellevue College!</h2>\\s*<p>(.*)</p>");
+        Pattern pattern = Pattern.compile("<h2>Student Housing is in full swing at Bellevue College!</h2>\\s*<p>(.*)<strong>");
         Matcher matcher = pattern.matcher(html);
         while (matcher.find()) {
             title = matcher.group(1);
