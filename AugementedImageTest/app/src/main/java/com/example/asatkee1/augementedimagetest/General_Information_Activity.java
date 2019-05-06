@@ -1,12 +1,22 @@
 package com.example.asatkee1.augementedimagetest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class General_Information_Activity extends AppCompatActivity {
 private TextView info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +25,9 @@ private TextView info;
         getWindow().setBackgroundDrawableResource(R.drawable.backgroundwhite);
 
         info = findViewById(R.id.information);
-       // info.setText("This is the general information about housing");
+        info.setTextSize(18);
+        info.setPadding(10,10,10,10);
+        info.setTypeface(Typeface.SERIF, Typeface.NORMAL);
         Intent intent = getIntent();
         String action = intent.getAction();
         String type = intent.getType();
@@ -29,4 +41,6 @@ private TextView info;
 
 
     }
+
+
 }

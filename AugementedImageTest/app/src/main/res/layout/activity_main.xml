@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
  
-    <fragment
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/sceneform_fragment"
-        android:name="com.example.asatkee1.augementedimagetest.CustomArFragment"
+     />/   android:name="com.example.asatkee1.augementedimagetest.CustomArFragment"
         />
 
 </android.support.constraint.ConstraintLayout>

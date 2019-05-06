@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".General_Information_Activity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/information"
         android:layout_width="wrap_content"
@@ -14,4 +18,5 @@
         android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="214dp" />
-</android.widget.RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
